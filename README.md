@@ -1,23 +1,21 @@
 <!-- BEGIN_TF_DOCS -->
-[![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
+[![Tests](https://github.com/netascode/terraform-aci-control-plane-mtu-policy/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-control-plane-mtu-policy/actions/workflows/test.yml)
 
-# Terraform ACI Scaffolding Module
+# Terraform ACI Control Plane MTU Policy Module
 
 Description
 
 Location in GUI:
-`Tenants` » `XXX`
+`System` » `System Settings` » `Control Plane MTU`
 
 ## Examples
 
 ```hcl
-module "aci_scaffolding" {
-  source  = "netascode/scaffolding/aci"
-  version = ">= 0.0.1"
+module "infraCPMtuPol" {
+  source  = "netascode/apic-control-plane-mtu-policy/aci"
+  version = ">= 0.1.0"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
-  description = "My Description"
+  control_plane_mtu_policy = 9000
 }
 ```
 
@@ -38,7 +36,7 @@ module "aci_scaffolding" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ctrl_plane_mtu_policy"></a> [ctrl\_plane\_mtu\_policy](#input\_ctrl\_plane\_mtu\_policy) | Control Plane MTU Policy. Minimum value: `576`. Maximum value: `9000`. | `number` | `9000` | no |
+| <a name="input_control_plane_mtu_policy"></a> [control\_plane\_mtu\_policy](#input\_control\_plane\_mtu\_policy) | Control Plane MTU Policy. Minimum value: `576`. Maximum value: `9000`. | `number` | `9000` | no |
 
 ## Outputs
 

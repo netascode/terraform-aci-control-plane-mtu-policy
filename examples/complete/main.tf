@@ -1,8 +1,6 @@
-module "aci_scaffolding" {
-  source  = "netascode/scaffolding/aci"
-  version = ">= 0.0.1"
+module "infraCPMtuPol" {
+  source  = "netascode/apic-control-plane-mtu-policy/aci"
+  version = ">= 0.1.0"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
-  description = "My Description"
+  control_plane_mtu_policy = 9000
 }
