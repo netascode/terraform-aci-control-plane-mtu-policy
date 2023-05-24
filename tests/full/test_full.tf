@@ -16,35 +16,21 @@ terraform {
 module "main" {
   source = "../.."
 
-  name        = "ABC"
-  alias       = "ALIAS"
-  description = "DESCR"
+  ctrl_plane_mtu_policy = 7000
 }
 
-data "aci_rest_managed" "fvTenant" {
-  dn = "uni/tn-ABC"
+data "aci_rest_managed" "infraCPMtuPol" {
+  dn = "uni/infra/CPMtu"
 
   depends_on = [module.main]
 }
 
-resource "test_assertions" "fvTenant" {
-  component = "fvTenant"
+resource "test_assertions" "infraCPMtuPol" {
+  component = "infraCPMtuPol"
 
-  equal "name" {
-    description = "name"
-    got         = data.aci_rest_managed.fvTenant.content.name
-    want        = "ABC"
-  }
-
-  equal "nameAlias" {
-    description = "nameAlias"
-    got         = data.aci_rest_managed.fvTenant.content.nameAlias
-    want        = "ALIAS"
-  }
-
-  equal "descr" {
-    description = "descr"
-    got         = data.aci_rest_managed.fvTenant.content.descr
-    want        = "DESCR"
+  equal "interfacePref" {
+    description = "interfacePref"
+    got         = data.aci_rest_managed.infraCPMtuPol.content.CPMtu
+    want        = "7000"
   }
 }
