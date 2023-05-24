@@ -12,10 +12,10 @@ Location in GUI:
 
 ```hcl
 module "infraCPMtuPol" {
-  source  = "netascode/apic-control-plane-mtu-policy/aci"
+  source  = "netascode/fabric-control-plane-mtu/aci"
   version = ">= 0.1.0"
 
-  control_plane_mtu_policy = 9000
+  control_plane_mtu = 9000
 }
 ```
 
@@ -36,7 +36,7 @@ module "infraCPMtuPol" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_control_plane_mtu_policy"></a> [control\_plane\_mtu\_policy](#input\_control\_plane\_mtu\_policy) | Control Plane MTU Policy. Minimum value: `576`. Maximum value: `9000`. | `number` | `9000` | no |
+| <a name="input_control_plane_mtu"></a> [control\_plane\_mtu](#input\_control\_plane\_mtu) | Control Plane MTU Policy. Minimum value: `576`. Maximum value: `9000`. | `number` | `9000` | no |
 
 ## Outputs
 
