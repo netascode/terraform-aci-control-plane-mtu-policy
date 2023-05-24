@@ -1,9 +1,7 @@
-resource "aci_rest_managed" "fvTenant" {
-  dn         = "uni/tn-${var.name}"
-  class_name = "fvTenant"
+resource "aci_rest_managed" "infraCPMtuPol" {
+  dn         = "uni/infra/CPMtu"
+  class_name = "infraCPMtuPol"
   content = {
-    name      = var.name
-    nameAlias = var.alias
-    descr     = var.description
+    interfacePref = var.interface_preference
   }
 }
